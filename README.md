@@ -1,7 +1,7 @@
 # Time Series Analysis
 
-This project contains a practical time series analysis workflow implemented in a Jupyter Notebook.
-The notebook covers data preparation, exploratory analysis, seasonality checks, decomposition, feature engineering, and forecasting with machine learning models.
+This project contains a time series analysis workflow implemented in a Jupyter Notebook.
+The notebook includes deep exploratory analysis, seasonality checks, feature engineering, multiple forecasting experiments, and rolling backtest validation for model selection.
 
 ## Project Structure
 
@@ -16,15 +16,18 @@ The notebook covers data preparation, exploratory analysis, seasonality checks, 
 - Time series decomposition
 - Autocorrelation/partial autocorrelation and seasonality checks
 - Feature engineering based on date/time components
-- Forecasting with `darts` and `XGBoost`
-- Model evaluation and visualization of predictions
+- Forecasting experiments across classical ML, and deep-learning approaches:
+  `XGBoost` (with time covariates via `darts`), `ExponentialSmoothing`, `ARIMA`, `SARIMAX` (with exogenous features), `Prophet`, and `LSTM`
+- Multiple experiment iterations with different preprocessing, scaling, feature sets, and model configurations
+- Robust model validation with rolling (walk-forward) backtest to compare candidates and identify the best-performing approach
+- Detailed evaluation with forecasting error metrics (including `MAPE`) and side-by-side prediction vs actual visualizations
 
 ## Requirements
 
-Use Python 3.9+ (recommended) and install the main dependencies:
+Use Python 3.9+ (recommended) and install dependencies:
 
 ```bash
-pip install jupyter pandas numpy matplotlib seaborn scikit-learn statsmodels xgboost darts
+pip install -r requirements.txt
 ```
 
 Depending on your environment, `darts` may require additional backend dependencies.
@@ -35,6 +38,7 @@ The notebook produces:
 
 - Visual diagnostics of trend and seasonality
 - Decomposition plots
-- Forecast plots vs actual values
-- Error metrics for model performance
+- Forecast plots vs actual values for multiple model families
+- Backtest diagnostics for model comparison
+- Error metrics for model performance across experiments
 
